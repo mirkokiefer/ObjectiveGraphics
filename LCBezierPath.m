@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CoreGraphicsWrapper.h"
+#import "ObjectiveGraphics.h"
 
 @interface LCBezierPath()
 @property(retain)__attribute__((NSObject)) CGMutablePathRef path;

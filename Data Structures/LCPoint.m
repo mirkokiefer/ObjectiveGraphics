@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CoreGraphicsWrapper.h"
+#import "ObjectiveGraphics.h"
 
 @implementation LCPoint
 @synthesize x, y;
