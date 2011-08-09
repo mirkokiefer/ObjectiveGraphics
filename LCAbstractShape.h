@@ -14,6 +14,5 @@
 @end
 
 @interface LCAbstractShape(Abstract)
-
 - (id<LCShape>)shape;
 @end
