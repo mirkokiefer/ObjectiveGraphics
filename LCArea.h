@@ -1,10 +1,4 @@
-//
-//  LCArea.h
-//  Wire
-//
-//  Created by Mirko on 7/12/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
+
 
 @class LCBezierPath;
 
