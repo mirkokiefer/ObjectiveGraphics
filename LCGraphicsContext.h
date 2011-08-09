@@ -9,7 +9,7 @@
 @class LCAffineTransform, LCColour, LCBezierPath;
 
 @interface LCGraphicsContext : NSObject
-@property(retain) __attribute__((NSObject)) CGContextRef cContext;
+@property(retain, readonly) __attribute__((NSObject)) CGContextRef cContext;
 
 + (id)currentContext;
 

@@ -8,29 +8,31 @@
 
 #import "ObjectiveGraphics.h"
 
+@interface LCGraphicsContext()
+@property(retain, readwrite) __attribute__((NSObject)) CGContextRef cContext;
+@end
+
 @implementation LCGraphicsContext
 @synthesize cContext;
 
 + (id)currentContext {
-  return [[LCGraphicsContext alloc] init];
+  CGContextRef cContext = CGContextRetain([[NSGraphicsContext currentContext] graphicsPort]);
+  //CGContextRef cContext = UIGraphicsGetCurrentContext();
+  LCGraphicsContext* context =  [LCGraphicsContext context: cContext];
+  return context;
 }
 
 + (id)context:(CGContextRef)aContext {
   LCGraphicsContext* context = [[LCGraphicsContext alloc] init];
   context.cContext = aContext;
+  CGContextSetAllowsAntialiasing(aContext, YES);
+  CGContextSetShouldAntialias(aContext, YES);
   return context;
 }
 
 - (id)init
 {
     self = [super init];
-    if (self) {
-      cContext = CGContextRetain([[NSGraphicsContext currentContext] graphicsPort]);
-      CGContextSetAllowsAntialiasing(cContext, YES);
-      CGContextSetShouldAntialias(cContext, YES);
-      //context = UIGraphicsGetCurrentContext();
-    }
-    
     return self;
 }
 
