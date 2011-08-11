@@ -23,4 +23,6 @@
 #import "LCWedge.h"
 #import "LCText.h"
 
+#import "LCGraphicsExamples.h"
+
 #define degToRad(x) (M_PI * x / 180.0)
