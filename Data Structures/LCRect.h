@@ -9,7 +9,7 @@
 @class LCPoint;
 
 @interface LCRect : NSObject
-@property(retain) LCPoint* bottomLeft;
+@property(strong) LCPoint* bottomLeft;
 @property(assign) CGFloat width;
 @property(assign) CGFloat height;
 @property(readonly) CGRect cRect;

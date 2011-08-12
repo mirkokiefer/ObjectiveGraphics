@@ -9,7 +9,7 @@
 #import "ObjectiveGraphics.h"
 
 @interface LCBezierPath()
-@property(retain)__attribute__((NSObject)) CGMutablePathRef path;
+@property(strong)__attribute__((NSObject)) CGMutablePathRef path;
 @property(readonly) LCBezierPath* transformedPath;
 @property(assign) CGPathDrawingMode mode;
 @property(readonly) LCRect* nonTransformedBoundingBox;

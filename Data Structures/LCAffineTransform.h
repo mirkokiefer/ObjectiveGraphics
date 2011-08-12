@@ -10,7 +10,7 @@
 
 @interface LCAffineTransform : NSObject
 @property(assign) CGFloat rotate;
-@property(retain) LCPoint* rotationCenter;
+@property(strong) LCPoint* rotationCenter;
 @property(assign) CGFloat translateX;
 @property(assign) CGFloat translateY;
 @property(assign) CGFloat scaleX;

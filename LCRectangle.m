@@ -9,7 +9,7 @@
 #import "ObjectiveGraphics.h"
 
 @interface LCRectangle()
-@property(retain) LCBezierPath* path;
+@property(strong) LCBezierPath* path;
 @end
 
 @implementation LCRectangle

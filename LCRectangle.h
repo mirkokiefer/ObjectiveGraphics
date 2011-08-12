@@ -10,7 +10,7 @@
 @class LCGraphicsContext, LCBezierPath, LCRect;
 
 @interface LCRectangle : LCAbstractShape
-@property(retain) LCRect* rect;
+@property(strong) LCRect* rect;
 
 + (LCRectangle*)rectangleWithRect:(LCRect*)rect;
 

@@ -11,12 +11,12 @@
 @implementation LCRect
 @synthesize bottomLeft, width, height;
 
-+ (LCRect*)bottomLeft:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height {
-  return [[LCRect alloc] initWithBottomLeft:point width: width height: height];
++ (id)bottomLeft:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height {
+  return [[self alloc] initWithBottomLeft:point width: width height: height];
 }
 
-+ (LCRect*)x:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height {
-  return [LCRect bottomLeft:[LCPoint x:x y:y] width: width height: height];
++ (id)x:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height {
+  return [self bottomLeft:[LCPoint x:x y:y] width: width height: height];
 }
 
 + (id)rect:(CGRect)rect {
