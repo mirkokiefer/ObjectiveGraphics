@@ -28,4 +28,5 @@
 - (CGFloat)width;
 - (CGFloat)height;
 - (LCRect*)rectWithPaddingX:(CGFloat)x y:(CGFloat)y;
+- (void)scale:(CGFloat)factor;
 @end

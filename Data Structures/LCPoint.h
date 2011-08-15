@@ -16,4 +16,5 @@
 + (LCPoint*)cPoint:(CGPoint)point;
 
 - (LCPoint*)initWithX:(CGFloat)x y:(CGFloat)y;
+- (void)offsetX:(CGFloat)dx y:(CGFloat)dy;
 @end
