@@ -26,5 +26,17 @@
 
 + (LCColour*)blue;
 
++ (LCColour*)blue10;
++ (LCColour*)orange10;
++ (LCColour*)green10;
++ (LCColour*)red10;
++ (LCColour*)purple10;
++ (LCColour*)brown10;
++ (LCColour*)violet10;
++ (LCColour*)gray10;
++ (LCColour*)yellowGreen10;
++ (LCColour*)turquoise10;
++ (NSArray*)scheme10;
+
 - (LCColour*)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 @end
