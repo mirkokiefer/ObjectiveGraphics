@@ -19,6 +19,8 @@
 @property(readonly) LCPoint* bottomCenter;
 @property(readonly) LCPoint* leftCenter;
 @property(readonly) LCPoint* rightCenter;
+@property(assign) CGFloat x;
+@property(assign) CGFloat y;
 
 + (id)bottomLeft:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height;
 + (id)x:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height;
@@ -28,5 +30,5 @@
 - (CGFloat)width;
 - (CGFloat)height;
 - (LCRect*)rectWithPaddingX:(CGFloat)x y:(CGFloat)y;
-- (void)scale:(CGFloat)factor;
+- (id)scale:(CGFloat)factor;
 @end

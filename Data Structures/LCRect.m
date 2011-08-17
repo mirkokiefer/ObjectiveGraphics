@@ -65,11 +65,28 @@
   return [LCRect x:self.bottomLeft.x - x y:self.bottomLeft.y - y width:self.width+2*x height:self.height+2*x];
 }
 
-- (void)scale:(CGFloat)factor {
+- (void)setX:(CGFloat)x {
+  self.bottomLeft.x = x;
+}
+
+- (void)setY:(CGFloat)y {
+  self.bottomLeft.y = y;
+}
+
+- (CGFloat)x {
+  return self.bottomLeft.x;
+}
+
+- (CGFloat)y {
+  return self.bottomLeft.y;
+}
+
+- (id)scale:(CGFloat)factor {
   self.bottomLeft.x = self.bottomLeft.x*factor;
   self.bottomLeft.y = self.bottomLeft.y*factor;
   self.width = self.width*factor;
   self.height = self.height*factor;
+  return self;
 }
 
 @end
