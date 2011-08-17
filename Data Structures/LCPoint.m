@@ -32,9 +32,10 @@
   return CGPointMake(self.x, self.y);
 }
 
-- (void)offsetX:(CGFloat)dx y:(CGFloat)dy {
+- (id)offsetX:(CGFloat)dx y:(CGFloat)dy {
   self.x = x+dx;
   self.y = y+dy;
+  return self;
 }
 
 @end

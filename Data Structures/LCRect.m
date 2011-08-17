@@ -82,10 +82,25 @@
 }
 
 - (id)scale:(CGFloat)factor {
-  self.bottomLeft.x = self.bottomLeft.x*factor;
-  self.bottomLeft.y = self.bottomLeft.y*factor;
+  [self offsetFactor:factor];
+  [self scaleInPosition:factor];
+  return self;
+}
+
+- (id)scaleInPosition:(CGFloat)factor {
   self.width = self.width*factor;
   self.height = self.height*factor;
+  return self;
+}
+
+- (id)offsetX:(CGFloat)dx y:(CGFloat)dy {
+  self.bottomLeft = [self.bottomLeft offsetX:dx y:dy];
+  return self;
+}
+
+- (id)offsetFactor:(CGFloat)factor {
+  self.bottomLeft.x = self.bottomLeft.x*factor;
+  self.bottomLeft.y = self.bottomLeft.y*factor;
   return self;
 }
 
