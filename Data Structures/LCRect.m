@@ -61,6 +61,18 @@
   return [LCPoint x:self.bottomLeft.x+self.width/2 y:self.bottomLeft.y];
 }
 
+- (LCPoint *)topLeft {
+  return [LCPoint x:self.x y:self.y+self.height];
+}
+
+- (LCPoint *)topRight {
+  return [LCPoint x:self.x+self.width y:self.y+self.height];
+}
+
+- (LCPoint *)bottomRight {
+  return [LCPoint x:self.x+self.width y:self.y];
+}
+
 - (LCRect*)rectWithPaddingX:(CGFloat)x y:(CGFloat)y {
   return [LCRect x:self.bottomLeft.x - x y:self.bottomLeft.y - y width:self.width+2*x height:self.height+2*x];
 }

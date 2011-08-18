@@ -19,6 +19,9 @@
 @property(readonly) LCPoint* bottomCenter;
 @property(readonly) LCPoint* leftCenter;
 @property(readonly) LCPoint* rightCenter;
+@property(readonly) LCPoint* topLeft;
+@property(readonly) LCPoint* topRight;
+@property(readonly) LCPoint* bottomRight;
 @property(assign) CGFloat x;
 @property(assign) CGFloat y;
 
