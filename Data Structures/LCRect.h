@@ -30,8 +30,8 @@
 - (CGFloat)width;
 - (CGFloat)height;
 - (LCRect*)rectWithPaddingX:(CGFloat)x y:(CGFloat)y;
-- (id)scale:(CGFloat)factor;
-- (id)scaleInPosition:(CGFloat)factor;
-- (id)offsetX:(CGFloat)dx y:(CGFloat)dy;
-- (id)offsetFactor:(CGFloat)factor;
+- (LCRect*)scale:(CGFloat)factor;
+- (LCRect*)scaleInPosition:(CGFloat)factor;
+- (LCRect*)offsetX:(CGFloat)dx y:(CGFloat)dy;
+- (LCRect*)offsetFactor:(CGFloat)factor;
 @end
