@@ -61,6 +61,21 @@
   return [LCPoint x:self.bottomLeft.x+self.width/2 y:self.bottomLeft.y];
 }
 
+- (void)setTopLeft:(LCPoint *)topLeft {
+  self.bottomLeft.x = topLeft.x;
+  self.bottomLeft.y = topLeft.y - self.height;
+}
+
+- (void)setTopRight:(LCPoint *)topRight {
+  self.bottomLeft.x = topRight.x - self.width;
+  self.bottomLeft.y = topRight.y - self.height;
+}
+
+- (void)setBottomRight:(LCPoint *)bottomRight {
+  self.bottomLeft.x = bottomRight.x - self.width;
+  self.bottomLeft.y = bottomRight.y;
+}
+
 - (LCPoint *)topLeft {
   return [LCPoint x:self.x y:self.y+self.height];
 }
