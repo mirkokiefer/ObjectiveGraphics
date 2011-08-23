@@ -9,7 +9,6 @@
 #import "ObjectiveGraphics.h"
 
 @interface LCAbstractShape() 
-@property(assign) SEL drawMode;
 @property(readonly) id<LCShape> transformedShape;
 @end
 
