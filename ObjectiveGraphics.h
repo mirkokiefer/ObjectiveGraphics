@@ -14,6 +14,12 @@
 #import "LCColour.h"
 #import "LCAffineTransform.h"
 
+#import "LCAnchor.h"
+#import "LCTopLeft.h"
+#import "LCTopRight.h"
+#import "LCBottomLeft.h"
+#import "LCBottomRight.h"
+
 #import "LCShape.h"
 #import "LCAbstractShape.h"
 #import "LCRectangle.h"
