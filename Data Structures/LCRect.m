@@ -109,14 +109,31 @@
 }
 
 - (LCRect*)scale:(CGFloat)factor {
-  [self offsetFactor:factor];
-  [self scaleInPosition:factor];
+  return [self scaleWidth:factor height:factor];
+}
+
+- (LCRect *)scaleWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor {
+  [self offsetFactorX:widthScaleFactor y:heightScaleFactor];
+  [self scaleInPositionWidth:widthScaleFactor height:heightScaleFactor];
   return self;
 }
 
 - (LCRect*)scaleInPosition:(CGFloat)factor {
-  self.width = self.width*factor;
-  self.height = self.height*factor;
+  return [self scaleInPositionWidth:factor height:factor];
+}
+
+- (LCRect *)scaleInPositionWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor {
+  self.width = self.width*widthScaleFactor;
+  self.height = self.height*heightScaleFactor;
+  return self;
+}
+
+- (LCRect *)scaleTopLeftTo:(LCPoint *)point {
+  CGFloat widthDiff = point.x - self.topLeft.x;
+  CGFloat heightDiff = point.y - self.topLeft.y;
+  self.width += -widthDiff;
+  self.height += heightDiff;
+  self.topLeft = point;
   return self;
 }
 
@@ -126,8 +143,12 @@
 }
 
 - (LCRect*)offsetFactor:(CGFloat)factor {
-  self.bottomLeft.x = self.bottomLeft.x*factor;
-  self.bottomLeft.y = self.bottomLeft.y*factor;
+  return [self offsetFactorX:factor y:factor];
+}
+
+- (LCRect *)offsetFactorX:(CGFloat)xFactor y:(CGFloat)yFactor {
+  self.bottomLeft.x = self.bottomLeft.x*xFactor;
+  self.bottomLeft.y = self.bottomLeft.y*yFactor;
   return self;
 }
 
