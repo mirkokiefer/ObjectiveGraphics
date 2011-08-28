@@ -88,6 +88,14 @@
   return [LCPoint x:self.x+self.width y:self.y];
 }
 
+- (LCRect*)set:(LCAnchor*)anchor to:(LCPoint*)point {
+  return [anchor setPointOn:self to:point];
+}
+
+- (LCPoint*)pointAt:(LCAnchor*)anchor {
+  return [anchor pointOn:self];
+}
+
 - (LCRect*)rectWithPaddingX:(CGFloat)x y:(CGFloat)y {
   return [LCRect x:self.bottomLeft.x - x y:self.bottomLeft.y - y width:self.width+2*x height:self.height+2*x];
 }

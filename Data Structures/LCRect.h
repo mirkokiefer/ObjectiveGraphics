@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-@class LCPoint;
+@class LCPoint, LCAnchor;
 
 @interface LCRect : NSObject
 @property(strong) LCPoint* bottomLeft;
@@ -32,6 +32,8 @@
 - (LCPoint*)bottomLeft;
 - (CGFloat)width;
 - (CGFloat)height;
+- (LCRect*)set:(LCAnchor*)anchor to:(LCPoint*)point;
+- (LCPoint*)pointAt:(LCAnchor*)anchor;
 - (LCRect*)rectWithPaddingX:(CGFloat)x y:(CGFloat)y;
 - (LCRect*)scale:(CGFloat)factor;
 - (LCRect*)scaleWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor;

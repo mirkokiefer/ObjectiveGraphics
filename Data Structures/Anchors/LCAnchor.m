@@ -25,8 +25,8 @@
 }
 
 - (LCRect *)position:(LCRect *)rect in:(LCRect*)parentRect {
-  LCPoint* anchorPoint = [self pointOn:parentRect];
-  return [self.opposite setPointOn:rect to:anchorPoint];
+  LCPoint* anchorPoint = [parentRect pointAt:self];
+  return [rect set:self.opposite to:anchorPoint];
 }
 
 @end
