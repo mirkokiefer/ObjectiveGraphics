@@ -8,11 +8,15 @@
 
 #import "ObjectiveGraphics.h"
 
+@interface LCRect()
+- (id)initWithAnchor:(LCAnchor*)anchor at:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height;
+@end
+
 @implementation LCRect
 @synthesize bottomLeft, width, height;
 
 + (id)bottomLeft:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height {
-  return [[self alloc] initWithBottomLeft:point width: width height: height];
+  return [[self alloc] initWithAnchor:[LCBottomLeft anchor] at:point width: width height: height];
 }
 
 + (id)x:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height {
@@ -23,12 +27,12 @@
   return [self x:CGRectGetMinX(rect) y:CGRectGetMinY(rect) width:CGRectGetWidth(rect) height:CGRectGetHeight(rect)];
 }
 
-- (LCRect*)initWithBottomLeft:(LCPoint*)aPoint width:(CGFloat)widthValue height:(CGFloat)heightValue {
+- (id)initWithAnchor:(LCAnchor*)anchor at:(LCPoint*)point width:(CGFloat)widthVal height:(CGFloat)heightVal {
   self = [super init];
   if (self) {
-    self.bottomLeft = aPoint;
-    self.width = widthValue;
-    self.height = heightValue;
+    [self set:anchor to:point];
+    self.width = widthVal;
+    self.height = heightVal;
   }
   return self;
 }
@@ -92,6 +96,12 @@
   return [anchor setPointOn:self to:point];
 }
 
+- (LCRect*)set:(LCAnchor*)anchor to:(LCPoint*)point oppositeTo:(LCPoint*)oppositePoint {
+  self.width = fabs(point.x-oppositePoint.x);
+  self.height = fabs(point.y-oppositePoint.y);
+  return [self set:anchor to:point];
+}
+
 - (LCPoint*)pointAt:(LCAnchor*)anchor {
   return [anchor pointOn:self];
 }
@@ -141,13 +151,8 @@
   return [self set:anchor to:oldAnchorPoint];
 }
 
-- (LCRect *)scaleTopLeftTo:(LCPoint *)point {
-  CGFloat widthDiff = point.x - self.topLeft.x;
-  CGFloat heightDiff = point.y - self.topLeft.y;
-  self.width += -widthDiff;
-  self.height += heightDiff;
-  self.topLeft = point;
-  return self;
+- (LCRect *)scale:(LCAnchor*)anchor to:(LCPoint *)point {
+  return [self set:anchor to:point oppositeTo:[self pointAt:anchor.opposite]];
 }
 
 - (LCRect*)offsetX:(CGFloat)dx y:(CGFloat)dy {
