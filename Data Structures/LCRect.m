@@ -131,9 +131,14 @@
 }
 
 - (LCRect *)scaleInPositionWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor {
-  self.width = self.width*widthScaleFactor;
-  self.height = self.height*heightScaleFactor;
-  return self;
+  return [self scaleInPositionWidth:widthScaleFactor height:heightScaleFactor anchor:[LCBottomLeft anchor]];
+}
+
+- (LCRect *)scaleInPositionWidth:(CGFloat)wScale height:(CGFloat)hScale anchor:(LCAnchor *)anchor {
+  LCPoint* oldAnchorPoint = [self pointAt:anchor];
+  self.width = self.width*wScale;
+  self.height = self.height*hScale;
+  return [self set:anchor to:oldAnchorPoint];
 }
 
 - (LCRect *)scaleTopLeftTo:(LCPoint *)point {

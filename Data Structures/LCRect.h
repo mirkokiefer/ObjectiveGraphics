@@ -39,6 +39,7 @@
 - (LCRect*)scaleWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor;
 - (LCRect*)scaleInPosition:(CGFloat)factor;
 - (LCRect*)scaleInPositionWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor;
+- (LCRect*)scaleInPositionWidth:(CGFloat)widthScaleFactor height:(CGFloat)heightScaleFactor anchor:(LCAnchor*)anchor;
 - (LCRect*)scaleTopLeftTo:(LCPoint*)point;
 - (LCRect*)offsetX:(CGFloat)dx y:(CGFloat)dy;
 - (LCRect*)offsetFactor:(CGFloat)factor;
