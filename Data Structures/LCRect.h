@@ -10,6 +10,9 @@
 
 @interface LCRect : NSObject
 @property(strong) LCPoint* bottomLeft;
+@property(assign) LCPoint* topLeft;
+@property(assign) LCPoint* topRight;
+@property(assign) LCPoint* bottomRight;
 @property(assign) CGFloat width;
 @property(assign) CGFloat height;
 @property(readonly) CGRect cRect;
@@ -19,9 +22,6 @@
 @property(readonly) LCPoint* bottomCenter;
 @property(readonly) LCPoint* leftCenter;
 @property(readonly) LCPoint* rightCenter;
-@property(assign) LCPoint* topLeft;
-@property(assign) LCPoint* topRight;
-@property(assign) LCPoint* bottomRight;
 @property(assign) CGFloat x;
 @property(assign) CGFloat y;
 
