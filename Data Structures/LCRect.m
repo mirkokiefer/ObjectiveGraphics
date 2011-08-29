@@ -9,14 +9,26 @@
 #import "ObjectiveGraphics.h"
 
 @interface LCRect()
-- (id)initWithAnchor:(LCAnchor*)anchor at:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height;
 @end
 
 @implementation LCRect
 @synthesize bottomLeft, width, height;
 
 + (id)bottomLeft:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height {
-  return [[self alloc] initWithAnchor:[LCBottomLeft anchor] at:point width: width height: height];
+  return [self anchor:[LCBottomLeft anchor] at:point width: width height: height];
+}
+
++ (id)anchor:(LCAnchor*)anchor at:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height {
+  LCRect* aRect = [[self alloc] init];
+  [aRect set:anchor to:point];
+  aRect.width = width;
+  aRect.height = height;
+  return aRect;
+}
+
++ (id)anchor:(LCAnchor*)anchor at:(LCPoint*)point opposite:(LCPoint*)oppositePoint {
+  LCRect* aRect = [[self alloc] init];
+  return [aRect set:anchor to:point oppositeTo:oppositePoint];;
 }
 
 + (id)x:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height {
@@ -27,12 +39,12 @@
   return [self x:CGRectGetMinX(rect) y:CGRectGetMinY(rect) width:CGRectGetWidth(rect) height:CGRectGetHeight(rect)];
 }
 
-- (id)initWithAnchor:(LCAnchor*)anchor at:(LCPoint*)point width:(CGFloat)widthVal height:(CGFloat)heightVal {
+- (id)init {
   self = [super init];
   if (self) {
-    [self set:anchor to:point];
-    self.width = widthVal;
-    self.height = heightVal;
+    self.bottomLeft = [LCPoint x:0 y:0];
+    self.width = 0;
+    self.height = 0;
   }
   return self;
 }

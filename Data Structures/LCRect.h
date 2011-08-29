@@ -26,6 +26,8 @@
 @property(assign) CGFloat y;
 
 + (id)bottomLeft:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height;
++ (id)anchor:(LCAnchor*)anchor at:(LCPoint*)point width:(CGFloat)width height:(CGFloat)height;
++ (id)anchor:(LCAnchor*)anchor at:(LCPoint*)point opposite:(LCPoint*)oppositePoint;
 + (id)x:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height;
 + (id)rect:(CGRect)rect;
 - (LCPoint*)bottomLeft;
