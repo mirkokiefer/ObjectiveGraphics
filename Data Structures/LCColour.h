@@ -12,7 +12,8 @@
 @property(assign) CGFloat green;
 @property(assign) CGFloat blue;
 @property(assign) CGFloat alpha;
-@property(readonly) CGColorRef cColour;
+@property(assign) CGColorRef cColour;
+@property(assign) NSColor* nsColour;
 
 + (LCColour*)red:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 

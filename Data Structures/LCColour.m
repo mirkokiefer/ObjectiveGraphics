@@ -95,4 +95,24 @@
 - (CGColorRef)cColour {
   return CGColorCreateGenericRGB(self.red, self.green, self.blue, self.alpha);
 }
+
+- (void)setCColour:(CGColorRef)cColour {
+  const CGFloat* components = CGColorGetComponents(cColour);
+  self.red = components[0];
+  self.green = components[1];
+  self.blue = components[2];
+  self.alpha = components[3];
+}
+
+- (void)setNsColour:(NSColor *)nsColour {
+  self.red = nsColour.redComponent;
+  self.green = nsColour.greenComponent;
+  self.blue = nsColour.blueComponent;
+  self.alpha = nsColour.alphaComponent;
+}
+
+- (NSColor *)nsColour {
+  return [NSColor colorWithDeviceRed:self.red green:self.green blue:self.blue alpha:self.alpha];
+}
+
 @end
